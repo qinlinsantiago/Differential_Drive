@@ -14,4 +14,9 @@ public final class Ports {
     public static final int LEFT_FOLLOWER = 5;  
     // etc
   }
+  
+  public static final class Shooter {
+      public static final int LEADER = 10;
+      public static final int FOLLOWER = 11;
+    }
 }
