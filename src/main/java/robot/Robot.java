@@ -3,6 +3,8 @@ package robot;
 import static edu.wpi.first.units.Units.Seconds;
 import static robot.Constants.PERIOD;
 
+import edu.wpi.first.epilogue.Epilogue;
+import edu.wpi.first.epilogue.Logged;
 import edu.wpi.first.wpilibj.DataLogManager;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.GenericHID.RumbleType;
@@ -28,6 +30,7 @@ import robot.drive.Drive;
  * the robot (including
  * subsystems, commands, and trigger mappings) should be declared here.
  */
+@Logged
 public class Robot extends CommandRobot {
   private final CommandXboxController operator = new CommandXboxController(OI.OPERATOR);
   private final CommandXboxController driver = new CommandXboxController(OI.DRIVER);
@@ -67,7 +70,7 @@ public class Robot extends CommandRobot {
     } else {
       DriverStation.silenceJoystickConnectionWarning(true);
     }
-
+    Epilogue.bind(this);
   }
 
   /** Configures trigger -> command bindings. */
