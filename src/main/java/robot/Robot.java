@@ -17,6 +17,7 @@ import lib.CommandRobot;
 import lib.FaultLogger;
 import org.littletonrobotics.urcl.URCL;
 import robot.Ports.OI;
+import robot.drive.Drive;
 
 /**
  * This class is where the bulk of the robot should be declared. Since
@@ -34,7 +35,7 @@ public class Robot extends CommandRobot {
   private final PowerDistribution pdh = new PowerDistribution();
 
   // SUBSYSTEMS
-
+  Drive drive = new Drive();
   // COMMANDS
 
   /** The robot contains subsystems, OI devices, and commands. */
@@ -71,6 +72,7 @@ public class Robot extends CommandRobot {
 
   /** Configures trigger -> command bindings. */
   private void configureBindings() {
+      drive.setDefaultCommand(drive.drive(driver::getLeftY, driver::getRightY));
   }
 
   /**
